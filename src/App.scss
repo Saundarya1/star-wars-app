@@ -1,0 +1,154 @@
+$main: rgb(60, 60, 56);
+
+.App {
+  background-image: url(./assets/images/wallpaper1.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  background-position: center;
+  position: absolute;
+  z-index: -1;
+  display: flex;
+  justify-items: center;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.device-shape {
+  position: relative;
+  width: 90vw;
+  height: 75vh;
+  clip-path: polygon(0% 3%, 5% 0%, 30% 0%, 35% 3%, 50% 3%, 60% 6%, 95% 6%, 100% 8%, 100% 100%, 100% 95%, 93% 100%, 7% 100%, 0% 95%);
+  background-color: rgba(255, 255, 0, 0.285);
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0px;
+    right: -5px;
+    bottom: -10px;
+    left: -5px;
+    z-index: -1;
+
+    background-color: transparent;
+    border-image: linear-gradient(to right, rgba(60, 60, 56, 1), rgb(134, 128, 128)) 20;
+    border-top: 70px solid $main;
+    border-right: 35px solid $main;
+    border-left: 35px solid $main;
+    border-bottom: 40px solid $main;
+  }
+}
+
+.device-shape-screen {
+  display: flex;
+  justify-items: center;
+  justify-content: center;
+  background-color: black;
+  width: 120px;
+  height: 25px;
+  color: aqua;
+  font-weight: bolder;
+  margin: 30px;
+  border-radius: 30%;
+
+  p {
+    $animation-duration: 3s;
+    animation: blink-animation $animation-duration infinite;
+  }
+}
+
+table {
+  color: aqua;
+
+  td,
+  th {
+    padding-right: 15px;
+    height: 35px;
+    border: dashed;
+  }
+
+  th {
+    position: sticky;
+    top: 0;
+    background-color: black;
+    z-index: 2;
+  }
+
+  .btn {
+    background-color: rgba(70, 171, 199, 0.484);
+  }
+}
+
+.table-wrapper {
+  margin: 35px;
+  height: 75%;
+  overflow: scroll;
+
+  input {
+    background-color: black;
+    color: aqua;
+    border-radius: 20%;
+    margin-bottom: 5px;
+  }
+}
+
+
+@media only screen and (min-width: 1200px) {
+
+  table {
+    font-size: 16px;
+  }
+
+  .table-wrapper {
+    margin: 50px;
+    margin-top: 0px;
+    display: flex;
+    justify-content: center;
+    overflow-x: visible;
+
+    input {
+     width: 300px;
+     position: absolute;
+     z-index: 3;
+     margin-top: -50px;
+    }
+  }
+
+  .device-shape {
+    width: 1100px;
+    height: 500px;
+
+    &::before {
+      border-right: 60px solid $main;
+      border-left: 60px solid $main;
+    }
+  }
+
+
+}
+
+@keyframes blink-animation {
+  0%,
+  50%,
+  100% {
+    opacity: 0;
+  }
+  25%,
+  75% {
+    opacity: 1;
+  }
+}
+
+.bi-arrow-down-circle {
+  animation: rotateAnimation 3s infinite;
+  @keyframes rotateAnimation {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}
