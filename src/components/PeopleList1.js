@@ -112,6 +112,7 @@ function PeopleList1() {
                 <input
                     type="text"
                     value={userName}
+                    placeholder='Search for user...'
                     onChange={(e) => {
                         setUserName(e.target.value);
                     }}>
